@@ -64,6 +64,7 @@ version = "0.1.0"
 dependencies = [
  "automerge",
  "automerge-test",
+ "graphannis-malloc_size_of",
 ]
 
 [[package]]
@@ -191,6 +192,12 @@ dependencies = [
  "libc",
  "wasi",
 ]
+
+[[package]]
+name = "graphannis-malloc_size_of"
+version = "1.1.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "00f928df608c43d300cc5f3a6064a1ed93177d10da8328177e29f43a7d9819ec"
 
 [[package]]
 name = "hex"

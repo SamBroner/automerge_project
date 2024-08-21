@@ -8,3 +8,4 @@ edition = "2021"
 [dependencies]
 automerge = "0.5.11"
 automerge-test = "0.4.3"
+malloc_size_of = { git = "https://github.com/servo/servo", package = "malloc_size_of" }
