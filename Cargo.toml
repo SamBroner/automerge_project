@@ -7,3 +7,4 @@ edition = "2021"
 
 [dependencies]
 automerge = "0.5.11"
+automerge-test = "0.4.3"

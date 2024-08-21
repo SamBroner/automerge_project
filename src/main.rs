@@ -2,7 +2,9 @@ use automerge::transaction::CommitOptions;
 use automerge::transaction::Transactable;
 use automerge::AutomergeError;
 use automerge::ObjType;
-use automerge::{Automerge, ReadDoc, ROOT};
+use automerge::{Automerge, ReadDoc, Value, ROOT};
+use automerge::iter::MapRangeItem;
+use automerge_test::pretty_print;
 
 // Based on https://automerge.github.io/docs/quickstart
 fn main() {
@@ -24,6 +26,8 @@ fn main() {
         .unwrap()
         .result;
 
+    print_document(&doc1);
+    
     let mut doc2 = Automerge::new();
     doc2.merge(&mut doc1).unwrap();
 
@@ -50,8 +54,16 @@ fn main() {
 
     doc1.merge(&mut doc2).unwrap();
 
+    
     for change in doc1.get_changes(&[]) {
         let length = doc1.length_at(&cards, &[change.hash()]);
         println!("{} {}", change.message().unwrap(), length);
     }
+    print_document(&doc1);
+
+}
+
+fn print_document(doc: &Automerge) {
+    println!("Document contents:");
+    pretty_print(doc);
 }
